@@ -1,0 +1,66 @@
+<template>
+    <lightning-card title="Health Assistant" icon-name="utility:einstein">
+        <div class="slds-p-around_medium">
+
+            <!-- Query input -->
+            <lightning-textarea
+                label="Ask a health question"
+                placeholder="e.g. How much exercise should I do per week?"
+                value={query}
+                onchange={handleQueryChange}
+                max-length="1000"
+                class="slds-m-bottom_small">
+            </lightning-textarea>
+
+            <!-- Submit button -->
+            <lightning-button
+                label="Ask"
+                variant="brand"
+                icon-name="utility:search"
+                onclick={handleAsk}
+                disabled={isLoading}
+                class="slds-m-bottom_medium">
+            </lightning-button>
+
+            <!-- Spinner -->
+            <template lwc:if={isLoading}>
+                <div class="slds-align_absolute-center slds-m-vertical_medium">
+                    <lightning-spinner
+                        alternative-text="Getting answer..."
+                        size="medium">
+                    </lightning-spinner>
+                </div>
+            </template>
+
+            <!-- Error -->
+            <template lwc:if={errorMessage}>
+                <div class="slds-notify slds-notify_alert slds-alert_error slds-m-top_small" role="alert">
+                    <span class="slds-assistive-text">Error</span>
+                    <lightning-icon
+                        icon-name="utility:error"
+                        alternative-text="Error"
+                        size="x-small"
+                        class="slds-m-right_x-small">
+                    </lightning-icon>
+                    <h2>{errorMessage}</h2>
+                </div>
+            </template>
+
+            <!-- Answer -->
+            <template lwc:if={responseText}>
+                <div class="response-card slds-m-top_medium slds-p-around_medium">
+                    <h3 class="slds-text-heading_small slds-m-bottom_x-small">
+                        <lightning-icon
+                            icon-name="utility:knowledge_base"
+                            size="x-small"
+                            class="slds-m-right_x-small">
+                        </lightning-icon>
+                        Answer
+                    </h3>
+                    <p class="slds-text-body_regular response-text">{responseText}</p>
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

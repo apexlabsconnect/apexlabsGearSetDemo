@@ -1,0 +1,59 @@
+<template>
+
+    <lightning-card title="Parent-Child Communication Demo">
+
+        <div class="slds-p-around_medium">
+
+            <h2 class="slds-text-heading_medium">
+                Parent Component
+            </h2>
+
+            <p class="slds-m-top_small">
+                Message sent to Child:
+                <strong>{parentMessage}</strong>
+            </p>
+
+            <div class="slds-m-top_medium">
+
+                <lightning-button
+                    label="Call Child @api Method"
+                    variant="brand"
+                    onclick={callChildMethod}>
+                </lightning-button>
+
+            </div>
+
+            <div class="slds-m-top_medium">
+
+                <lightning-button
+                    label="Change Message Sent to Child"
+                    onclick={changeMessage}>
+                </lightning-button>
+
+            </div>
+
+            <div class="slds-m-top_medium">
+
+                <p>
+                    Message received from Child:
+                    <strong>{childMessage}</strong>
+                </p>
+
+            </div>
+
+            <div class="slds-m-top_large">
+
+                <!-- Child Component -->
+
+                <c-communication-child
+                    message-from-parent={parentMessage}
+                    onchildmessage={handleChildMessage}>
+                </c-communication-child>
+
+            </div>
+
+        </div>
+
+    </lightning-card>
+
+</template>

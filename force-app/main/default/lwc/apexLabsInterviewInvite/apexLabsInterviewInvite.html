@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="APEX LABS Interview Invitation" icon-name="standard:email">
+
+        <div class="slds-p-around_medium">
+
+            <lightning-input
+                type="email"
+                label="Candidate Email"
+                value={candidateEmail}
+                onchange={handleEmailChange}
+                required>
+            </lightning-input>
+
+            <lightning-input
+                type="datetime"
+                label="Interview Date & Time"
+                value={interviewDateTime}
+                onchange={handleDateTimeChange}
+                required>
+            </lightning-input>
+
+            <div class="slds-m-top_medium">
+                <lightning-button
+                    variant="brand"
+                    label="Send Interview Invitation"
+                    onclick={sendEmail}
+                    disabled={isLoading}>
+                </lightning-button>
+            </div>
+
+            <template if:true={message}>
+                <div class="slds-m-top_medium">
+                    {message}
+                </div>
+            </template>
+
+        </div>
+
+    </lightning-card>
+</template>

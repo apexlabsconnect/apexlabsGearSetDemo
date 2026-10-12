@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <apiVersion>67.0</apiVersion>
+
+    <isExposed>true</isExposed>
+
+    <targets>
+        <!-- Add LWC to Lightning Record Page / FlexiPage -->
+        <target>lightning__RecordPage</target>
+
+        <!-- Use LWC as a Lightning Quick Action / Button -->
+        <target>lightning__RecordAction</target>
+    </targets>
+
+    <targetConfigs>
+
+        <!-- FlexiPage configuration -->
+        <targetConfig targets="lightning__RecordPage">
+            <objects>
+                <object>ServiceAppointment</object>
+            </objects>
+        </targetConfig>
+
+        <!-- Quick Action / Button configuration -->
+        <targetConfig targets="lightning__RecordAction">
+            <actionType>ScreenAction</actionType>
+        </targetConfig>
+
+    </targetConfigs>
+
+</LightningComponentBundle>

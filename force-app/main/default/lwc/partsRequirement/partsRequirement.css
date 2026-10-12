@@ -1,0 +1,7 @@
+:host {
+    display: block;
+}
+
+.slds-grid {
+    row-gap: 0.5rem;
+}

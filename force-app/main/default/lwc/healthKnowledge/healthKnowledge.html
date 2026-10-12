@@ -1,0 +1,86 @@
+<template>
+
+    <lightning-card
+        title="Health Knowledge Assistant"
+        icon-name="standard:knowledge">
+
+        <div class="slds-p-around_medium">
+
+            <lightning-textarea
+                name="query"
+                label="Ask a Question"
+                value={query}
+                onchange={handleQueryChange}
+                placeholder="Enter your health-related question..."
+                maxlength="5000">
+            </lightning-textarea>
+
+
+            <div class="slds-m-top_medium">
+
+                <lightning-button
+                    variant="brand"
+                    label="Ask"
+                    onclick={handleAsk}
+                    disabled={isLoading}>
+                </lightning-button>
+
+            </div>
+
+
+            <template if:true={isLoading}>
+
+                <div class="slds-m-top_medium slds-align_absolute-center">
+
+                    <lightning-spinner
+                        alternative-text="Getting answer..."
+                        size="medium">
+                    </lightning-spinner>
+
+                </div>
+
+            </template>
+
+
+            <template if:true={errorMessage}>
+
+                <div class="slds-m-top_medium">
+
+                    <div
+                        class="slds-notify slds-notify_alert slds-alert_error"
+                        role="alert">
+
+                        <span class="slds-assistive-text">
+                            Error
+                        </span>
+
+                        <h2>{errorMessage}</h2>
+
+                    </div>
+
+                </div>
+
+            </template>
+
+
+            <template if:true={answer}>
+
+                <div class="slds-m-top_large">
+
+                    <div class="slds-text-heading_small slds-m-bottom_small">
+                        Answer
+                    </div>
+
+                    <div class="answer-container">
+                        {answer}
+                    </div>
+
+                </div>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>

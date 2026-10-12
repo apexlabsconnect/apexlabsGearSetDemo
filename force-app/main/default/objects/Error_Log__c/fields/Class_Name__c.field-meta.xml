@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Class_Name__c</fullName>
+    <description>The Apex class name where the exception originated, extracted by parsing the stack trace string.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Populated automatically by parsing the stack trace. Do not edit manually.</inlineHelpText>
+    <label>Class Name</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
